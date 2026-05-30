@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innov Construction Afrik SARL | Building Niger's Future</title>
+    <style>
+        /* Base Reset & Variables */
+        :root {
+            --primary-color: #1a252f; /* Deep Charcoal */
+            --accent-color: #f39c12;  /* Amber Gold */
+            --light-bg: #f8f9fa;      /* Off-White */
+            --text-dark: #2c3e50;
+            --text-light: #ffffff;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #ffffff;
+        }
+
+        /* Container utility */
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 37, 47, 0.85), rgba(26, 37, 47, 0.85)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            margin-top: 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent-color);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            font-weight: 700;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #e08e0b;
+            transform: translateY(-2px);
+        }
+
+        /* About & Stats Section */
+        .about {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-box {
+            background-color: var(--light-bg);
+            padding: 2rem;
+            border-radius: 6px;
+            border-bottom: 4px solid var(--accent-color);
+        }
+
+        .stat-box h3 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--light-bg);
+            padding: 5rem 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: #ffffff;
+            padding: 2.5rem 2rem;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* Projects Portfolio Section */
+        .projects {
+            padding: 5rem 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .project-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h4 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-info p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 5rem 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .contact-method {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-method h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: #ddd;
+        }
+
+        .contact-method p {
+            color: #bbb;
+        }
+
+        /* Basic form styling */
+        .contact-form form {
+            display: grid;
+            gap: 1.2rem;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #444;
+            background-color: #2c3e50;
+            color: #fff;
+            border-radius: 4px;
+            font-family: var(--font-main);
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111a22;
+            color: #777;
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+            border-top: 1px solid #222;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav ul li {
+                margin: 0 1rem;
+            }
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">INNOV <span>CONSTRUCTION</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="badge">Agréé 3ème Catégorie - Niger</div>
+            <h1>Building Infrastructure with <span>Precision & Innovation</span></h1>
+            <p>Innov Construction Afrik SARL delivers industry-leading civil engineering, defense infrastructure, and modern urban transformation projects across the Republic of Niger and sub-regional corridors.</p>
+            <a href="#contact" class="btn">Partner With Us</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Who We Are</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Established in 2016 under corporate laws of Niger, <strong>Innov Construction Afrik SARL</strong> has grown into a highly trusted partner for complex civil engineering, structural restoration, and specialized urban architecture.</p>
+                    <p>Holding an official 3rd Category government construction certification, we safely engineer assets that sustain commercial development, support critical state infrastructure, and withstand the dynamic climatic demands of the Sahel region.</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <h3>2016</h3>
+                        <p>Established</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>Cat. 3</h3>
+                        <p>Govt Certification</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Capabilities</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Public Works (BTP)</h3>
+                    <p>Large-scale grading, structural defense frameworks, earthworks, and heavy highway infrastructural assets built to international standards.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Commercial Engineering</h3>
+                    <p>From modern corporate layouts to high-capacity industrial warehouses, we scale logistics-ready complexes safely and efficiently.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏡</div>
+                    <h3>Residential Development</h3>
+                    <p>Turnkey real estate development, architectural structural concrete layout design, and premium residential estates execution.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Industrial & Energy Support</h3>
+                    <p>Specialized physical structural execution, including high-voltage grid support systems, civil concrete foundations, and industrial bases.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Proven Deliverables</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=400&q=80');"></div>
+                    <div class="project-info">
+                        <h4>Military Aviation Hangars</h4>
+                        <p>Constructed and delivered 6 specialized aircraft hangars for the Niger Air Force across major tactical bases in Diffa and Zinder.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=400&q=80');"></div>
+                    <div class="project-info">
+                        <h4>High-Voltage Energy Grid Support</h4>
+                        <p>Partnered with international contractors (Eiffage) to securely anchor transmission grid infrastructures within the Niamey sector.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1508962914676-134849a727f0?auto=format&fit=crop&w=400&q=80');"></div>
+                    <div class="project-info">
+                        <h4>Urban Beautification Fountains</h4>
+                        <p>Engineered and executed the architectural public water fountains at the Palais des Congrès roundabout for the <em>Niamey Nyala</em> initiative.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: #fff;">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Headquarters & Regional Coordination</h3>
+                    <div class="contact-method">
+                        <h4>Main Corporate Office (Niger)</h4>
+                        <p>Ny2000 (Niamey 2000), Route du Château</p>
+                        <p>Niamey, Republic of Niger</p>
+                    </div>
+                    <div class="contact-method">
+                        <h4>Direct Helplines</h4>
+                        <p>+227 90 59 98 98</p>
+                        <p>+227 96 59 28 28</p>
+                    </div>
+                    <div class="contact-method">
+                        <h4>Sub-Regional Project Offices (Nigeria)</h4>
+                        <p>Kano & Abuja Regional Liaison Hubs</p>
+                        <p>+234 803 537 8973 / +234 803 978 9940</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you! This mock landing page has recorded your request.');">
+                        <input type="text" placeholder="Your Name or Organization Name" required>
+                        <input type="email" placeholder="Corporate Email Address" required>
+                        <input type="text" placeholder="Project Type (e.g., Civil Engineering, BTP)" required>
+                        <textarea rows="5" placeholder="Project Brief / Details" required></textarea>
+                        <button type="submit" class="btn" style="border: none; cursor: pointer; width: 100%;">Submit Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="padding: 0;">
+            <p>&copy; 2026 Innov Construction Afrik SARL. All Rights Reserved. Engineered for performance and reliability across West Africa.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
